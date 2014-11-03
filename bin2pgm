@@ -2,11 +2,12 @@
 
 function convert {
 	name=$1
+	filename=$(basename $name)
 	width=$2
 	size=$(wc -c $name| sed 's/ *\([^ ]*\)\ *.*/\1/')
 	size=$(($size/$width))
 
-	$((echo "P5 $width $size 255"; cat $name) > ${name}.pgm)
+	$((echo "P5 $width $size 255"; cat $name) > ${filename}.pgm)
 }
 
 if [ $# -eq 1 ]
