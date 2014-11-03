@@ -1,0 +1,20 @@
+#/bin/bash
+
+function convert {
+	name=$1
+	width=$2
+	size=$(wc -c $name| sed 's/ *\([^ ]*\)\ *.*/\1/')
+	size=$(($size/$width))
+
+	$((echo "P5 $width $size 255"; cat $name) > ${name}.pgm)
+}
+
+if [ $# -eq 1 ]
+	then
+		convert $1 512
+elif [ $# -eq 2 ]
+	then
+		convert $1 $2
+else
+	echo "Usage: bin2pgm filename [width=512]"
+fi
