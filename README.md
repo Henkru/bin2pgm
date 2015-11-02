@@ -1,4 +1,4 @@
-n2pgm
+binn2pgm
 =======
 
 Convert binary file to [Netpbm](http://netpbm.sourceforge.net/doc/pgm.html)
